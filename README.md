@@ -42,36 +42,37 @@ Below is an example of using webpack to compile a [React.js](https://facebook.gi
 
 ```js
 // config/webpack.js
-
-var webpack = require('webpack');
+import webpack from 'webpack';
 
 // compile js assets into a single bundle file
-module.exports.webpack = {
-  options: {
-    devtool: 'eval',
-    entry: [
-      './assets/js',
-    ],
-    output: {
-      path: path.resolve(__dirname, '.tmp/public/js'),
-      filename: 'bundle.js'
+export default {
+  webpack: {
+    options: {
+      devtool: 'eval',
+      entry: [
+        './assets/js',
+      ],
+      output: {
+        path: path.resolve(__dirname, '.tmp/public/js'),
+        filename: 'bundle.js'
+      },
+      plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+      ],
+      module: {
+        loaders: [
+          // requires "npm install --save-dev babel-loader"
+          { test: /\.js$/, loaders: ['babel-loader?stage=0'] },
+          { test: /\.css$/, loader: 'style!css' }
+        ]
+      }
     },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin()
-    ],
-    module: {
-      loaders: [
-        // requires "npm install --save-dev babel-loader"
-        { test: /\.js$/, loaders: ['babel-loader?stage=0'] },
-        { test: /\.css$/, loader: 'style!css' }
-      ]
-    }
-  },
 
-  // docs: https://webpack.github.io/docs/node.js-api.html#compiler
-  watchOptions: {
-    aggregateTimeout: 300
+    // docs: https://webpack.github.io/docs/node.js-api.html#compiler
+    watchOptions: {
+      aggregateTimeout: 300
+    }
   }
 };
 ```
