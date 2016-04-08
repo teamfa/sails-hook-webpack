@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - '0.12'
+  - '4.0'
+  - '5.0'
+
+notifications:
+  email: false
+
+deploy:
+  provider: npm
+  email: it@teamfa.com
+  api_key:
+    secure: TJfI/+izMobmNGrJtq74VVTYu8HSqYR2onl83/NSRO2Ud6joJUckq58+VWDc3ILd+ZFjODdtR5nnrn0waE9fgaNO136F0J/W1BRYsyHQbedRnPLBA1cnUHD233KHGS1Sk5ayL5YhGpzR/ybJQ/dnUajgW2LcZhgu6UFWc61Wx0SV1gEsqAxl+H0e591u+Q8LvVNq/TT1ATr7kHSiff0bfGahc7WeEf9XCMmWLczFPz07kZyFLMPhP4WuvC1mtcC0ipqrxWa3bb60JN3NizTlEEe3qMh/v7UKSun2LzHUvCPq8lYU/VYUrkoXEVOuB+Lykw/FzbwpgKa/WrABVI5juk6jhvff2Acqv/19O0jLO9jpTFnwHN9t6QeCwUKw2M4xB7UTkwedFr1GMVAOLS/Xdv6t/5cgika0DP6pBWMejYOfwvkZM2RJtrvOQqBsJTfJGPTMr11iUUFeBQ8FpdfX2k0Q1PrJmgHFv1gZ2bgXgYf8dWHmVgNah6s8Xg+fp2vC5UOfeczqb3BGXBR5+eC67tMbZ9Ch1HK1nzmpqWGzRI+eCmMxzsgGPUvzKYc/LwWv4k8SfWOZ23iTDQ9xhAenx5rQzPpmgd2Zx4pUWcN29zY5A04l3UQBH0E1H55HcbbnC8PnyCQgEFoUNxVYxpGnaog15W37fmG1oQQ4Va8WAPo=
+  on:
+    tags: true
+    repo: teamfa/sails-hook-webpack
+    all_branches: true
+
+sudo: false
