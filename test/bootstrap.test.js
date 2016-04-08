@@ -1,13 +1,12 @@
 var Sails = require('sails');
-var path = require('path');
 var sails;
 
 before(function(done) {
   this.timeout(30000);
 
   var config = {
-    appPath: path.resolve(__dirname, '..'),
     hooks: {
+      webpack: require('./../lib'),
       grunt: false
     },
     log: {
