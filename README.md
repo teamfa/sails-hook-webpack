@@ -12,7 +12,7 @@ npm install sails-hook-webpack --save
 
 ## 2. Configure
 
-### a. Disable the built-in sails Grunt hook
+### a. Disable the sails grunt hook.
 
 ```js
 // .sailsrc
@@ -26,7 +26,7 @@ npm install sails-hook-webpack --save
 ### b. Set your environment variable.
 
 By default, Sails ([and express](http://stackoverflow.com/a/16979503/291180)) sets `NODE_ENV=development`.
-With this setting, webpack will watch for changes in the directories you specify in your `config/webpack.js`.
+With this setting, webpack in dev will watch for changes in the directories you specify in your `config/webpack.js`. In prod webpack will just run your webpack configuration.
 
 
 | `NODE_ENV` | webpack mode | description |
@@ -63,7 +63,7 @@ export default {
       module: {
         loaders: [
           // requires "npm install --save-dev babel-loader"
-          { test: /\.js$/, loaders: ['babel-loader?stage=0'] },
+          { test: /\.js$/, loaders: ['babel-loader'] },
           { test: /\.css$/, loader: 'style!css' }
         ]
       }
@@ -80,8 +80,15 @@ export default {
 ## 3. Lift!
 
 ```sh
-$ sails lift
+sails lift
 ```
+
+### Events
+
+This hook provides events that can be listened to by using `sails.on(..event, ..fn)`
+
+- **hook:sails-hook-webpack:compiler-ready**  - emitted when the compiler is initialised and ready.
+- **hook:sails-hook-webpack:after-build** - emitted after each webpack build, the event data includes the webpack build stats.
 
 ## License
 MIT
