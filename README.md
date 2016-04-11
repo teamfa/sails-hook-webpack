@@ -47,29 +47,13 @@ import webpack from 'webpack';
 // compile js assets into a single bundle file
 export default {
   webpack: {
-    options: {
-      devtool: 'eval',
-      entry: [
-        './assets/js',
-      ],
-      output: {
-        path: path.resolve(__dirname, '.tmp/public/js'),
-        filename: 'bundle.js'
-      },
-      plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-      ],
-      module: {
-        loaders: [
-          // requires "npm install --save-dev babel-loader"
-          { test: /\.js$/, loaders: ['babel-loader'] },
-          { test: /\.css$/, loader: 'style!css' }
-        ]
+    config: { },  // webpack config here
+    development: { // dev server config
+      webpack: developmentClient, // separate config for the dev server or defaults to using the config above
+      config: { // webpack-dev-server-config
+        port: 3000
       }
     },
-
-    // docs: https://webpack.github.io/docs/node.js-api.html#compiler
     watchOptions: {
       aggregateTimeout: 300
     }
