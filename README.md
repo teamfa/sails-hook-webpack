@@ -38,7 +38,7 @@ With this setting, webpack in dev will watch for changes in the directories you 
 
 This hook uses the standard [Webpack Configuration](https://webpack.github.io/docs/configuration.html).
 
-Below is an example of using webpack to compile a [React.js](https://facebook.github.io/react/) application located in `assets/js/`.
+Below is an example of the webpack configuration file. `PROJECT_DIR/config/webpack.js`
 
 ```js
 // config/webpack.js
@@ -49,7 +49,7 @@ export default {
   webpack: {
     config: { },  // webpack config here
     development: { // dev server config
-      webpack: developmentClient, // separate config for the dev server or defaults to using the config above
+      webpack: { }, // separate config dev server or defaults to the config above
       config: { // webpack-dev-server-config
         port: 3000
       }
