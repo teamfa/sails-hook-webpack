@@ -10,6 +10,10 @@ Webpack asset pipeline hook for Sails.
 npm install sails-hook-webpack --save
 ```
 
+You will also need `webpack` and `webpack-dev-server` installed in your project.
+
+`npm i webpack webpack-dev-server --save`
+
 ## 2. Configure
 
 ### a. Disable the sails grunt hook.
