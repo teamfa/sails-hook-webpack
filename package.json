@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-webpack",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Webpack asset pipeline hook for Sails",
   "keywords": [
     "sails",
@@ -15,7 +15,6 @@
     "webpack": "^1.12.14"
   },
   "scripts": {
-    "postinstall": "npm run build",
     "prepublish": "npm run build",
     "build": "NODE_ENV=production babel src --out-dir lib --copy-files",
     "build-watch": "NODE_ENV=production babel src --out-dir lib --copy-files --watch src",

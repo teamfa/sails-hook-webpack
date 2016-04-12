@@ -23,6 +23,8 @@ npm install sails-hook-webpack --save
 }
 ```
 
+> Optionally, you can also remove the default Sails `tasks` directory and the `Gruntfile.js`.
+
 ### b. Set your environment variable.
 
 By default, Sails ([and express](http://stackoverflow.com/a/16979503/291180)) sets `NODE_ENV=development`.
@@ -44,12 +46,11 @@ Below is an example of the webpack configuration file. `PROJECT_DIR/config/webpa
 // config/webpack.js
 import webpack from 'webpack';
 
-// compile js assets into a single bundle file
 export default {
   webpack: {
     config: { },  // webpack config here
     development: { // dev server config
-      webpack: { }, // separate config dev server or defaults to the config above
+      webpack: { }, // separate webpack config for the dev server or defaults to the config above
       config: { // webpack-dev-server-config
         port: 3000
       }
@@ -61,6 +62,29 @@ export default {
 };
 ```
 
+ES5:
+
+
+```js
+// config/webpack.js
+var webpack = require('webpack');
+
+module.exports.webpack = {
+    config: { },  // webpack config here
+    development: { // dev server config
+      webpack: { }, // separate webpack config for the dev server or defaults to the config above
+      config: { // webpack-dev-server-config
+        port: 3000
+      }
+    },
+    watchOptions: {
+      aggregateTimeout: 300
+    }
+};
+```
+
+
+
 ## 3. Lift!
 
 ```sh
@@ -71,8 +95,12 @@ sails lift
 
 This hook provides events that can be listened to by using `sails.on(..event, ..fn)`
 
-- **hook:sails-hook-webpack:compiler-ready**  - emitted when the compiler is initialised and ready.
+- **hook:sails-hook-webpack:compiler-ready**  - emitted when the compiler is initialised and ready, usually after the first build event.
 - **hook:sails-hook-webpack:after-build** - emitted after each webpack build, the event data includes the webpack build stats.
+
+### sails-linker
+
+To replicate [`sails-linker`](http://sailsjs.org/documentation/anatomy/my-app/tasks/config/sails-linker-js) functionality, check out our [`linker-webpack-plugin`](https://github.com/teamfa/linker-webpack-plugin).
 
 ## License
 MIT
