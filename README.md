@@ -49,7 +49,7 @@ export default {
   webpack: {
     config: { },  // webpack config here
     development: { // dev server config
-      webpack: { }, // separate config dev server or defaults to the config above
+      webpack: { }, // separate webpack config for the dev server or defaults to the config above
       config: { // webpack-dev-server-config
         port: 3000
       }
