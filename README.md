@@ -44,7 +44,6 @@ Below is an example of the webpack configuration file. `PROJECT_DIR/config/webpa
 // config/webpack.js
 import webpack from 'webpack';
 
-// compile js assets into a single bundle file
 export default {
   webpack: {
     config: { },  // webpack config here
@@ -68,7 +67,6 @@ ES5:
 // config/webpack.js
 var webpack = require('webpack');
 
-// compile js assets into a single bundle file
 module.exports.webpack = {
     config: { },  // webpack config here
     development: { // dev server config
