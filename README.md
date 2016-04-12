@@ -23,6 +23,8 @@ npm install sails-hook-webpack --save
 }
 ```
 
+> Optionally, you can also remove the default Sails `tasks` directory and the `Gruntfile.js`.
+
 ### b. Set your environment variable.
 
 By default, Sails ([and express](http://stackoverflow.com/a/16979503/291180)) sets `NODE_ENV=development`.
@@ -81,6 +83,8 @@ module.exports.webpack = {
 };
 ```
 
+
+
 ## 3. Lift!
 
 ```sh
@@ -93,6 +97,10 @@ This hook provides events that can be listened to by using `sails.on(..event, ..
 
 - **hook:sails-hook-webpack:compiler-ready**  - emitted when the compiler is initialised and ready, usually after the first build event.
 - **hook:sails-hook-webpack:after-build** - emitted after each webpack build, the event data includes the webpack build stats.
+
+### sails-linker
+
+To replicate [`sails-linker`](http://sailsjs.org/documentation/anatomy/my-app/tasks/config/sails-linker-js) functionality, check out our [`linker-webpack-plugin`](https://github.com/teamfa/linker-webpack-plugin).
 
 ## License
 MIT
