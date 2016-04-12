@@ -61,6 +61,28 @@ export default {
 };
 ```
 
+ES5:
+
+
+```js
+// config/webpack.js
+var webpack = require('webpack');
+
+// compile js assets into a single bundle file
+module.exports.webpack = {
+    config: { },  // webpack config here
+    development: { // dev server config
+      webpack: { }, // separate webpack config for the dev server or defaults to the config above
+      config: { // webpack-dev-server-config
+        port: 3000
+      }
+    },
+    watchOptions: {
+      aggregateTimeout: 300
+    }
+};
+```
+
 ## 3. Lift!
 
 ```sh
