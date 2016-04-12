@@ -2,16 +2,16 @@ import webpack from 'webpack'
 
 export default function (sails) {
 
-  const config = {
-    hook: sails.config.webpack,
-    server: sails.config.webpack.development
-  };
-
-  if (!config.hook || !config.hook.config) {
+  if (!sails.config.webpack || !sails.config.webpack.config) {
     sails.log.warn('sails-hook-webpack: No Webpack options have been defined.');
     sails.log.warn('sails-hook-webpack: Please configure your config/webpack.js file.')
     return {};
   }
+
+  const config = {
+    hook: sails.config.webpack,
+    server: sails.config.webpack.development
+  };
 
   const hook = {
 
