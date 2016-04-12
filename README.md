@@ -91,7 +91,7 @@ sails lift
 
 This hook provides events that can be listened to by using `sails.on(..event, ..fn)`
 
-- **hook:sails-hook-webpack:compiler-ready**  - emitted when the compiler is initialised and ready.
+- **hook:sails-hook-webpack:compiler-ready**  - emitted when the compiler is initialised and ready, usually after the first build event.
 - **hook:sails-hook-webpack:after-build** - emitted after each webpack build, the event data includes the webpack build stats.
 
 ## License
