@@ -1,3 +1,4 @@
+# sails-hook-webpack
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
