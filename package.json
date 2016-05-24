@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-webpack",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Webpack asset pipeline hook for Sails",
   "keywords": [
     "sails",
@@ -14,7 +14,7 @@
   "scripts": {
     "prepublish": "npm run lint && npm run build",
     "lint": "eslint src/",
-    "build": "NODE_ENV=production babel src --out-dir lib --copy-files",
+    "build": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib --copy-files",
     "build-watch": "NODE_ENV=production babel src --out-dir lib --copy-files --watch src",
     "test": "mocha"
   },
@@ -31,6 +31,7 @@
     "Elliot Hesp"
   ],
   "devDependencies": {
+    "babel-cli": "^6.9.0",
     "babel-core": "^6.4.0",
     "babel-eslint": "^4.1.6",
     "babel-plugin-add-module-exports": "^0.1.2",
