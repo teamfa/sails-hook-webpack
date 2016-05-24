@@ -70,10 +70,10 @@ export default function (sails) {
     sails.log.silly('sails-hook-webpack: ', stats.toString());
     if (process.env.NODE_ENV === 'development') {
       sails.log.info('sails-hook-webpack: Watching for changes...');
-      hook.compiler.watch(config.hook.watchOptions, hook.afterBuild);
+      hook.compiler.watch(config.hook.watchOptions, hook.afterBuild.bind(hook));
     } else {
       sails.log.info('sails-hook-webpack: Running production build...');
-      hook.compiler.run(hook.afterBuild);
+      hook.compiler.run(hook.afterBuild.bind(hook));
     }
   });
 
