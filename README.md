@@ -64,8 +64,8 @@ let plugins = [
 
 if (debug) {
   // add this entries in order to enable webpack HMR in browser
-  entries.push('webpack/hot/dev-server');
-  entries.push('webpack-dev-server/client?http://localhost:3000/');
+  entry.push('webpack/hot/dev-server');
+  entry.push('webpack-dev-server/client?http://localhost:3000/');
 
   // HMR plugin
   plugins.push(new webpack.HotModuleReplacementPlugin({
@@ -230,8 +230,8 @@ var plugins = [
 
 if (debug) {
   // add this entries in order to enable webpack HMR in browser
-  entries.push('webpack/hot/dev-server');
-  entries.push('webpack-dev-server/client?http://localhost:3000/');
+  entry.push('webpack/hot/dev-server');
+  entry.push('webpack-dev-server/client?http://localhost:3000/');
 
   // HMR plugin
   plugins.push(new webpack.HotModuleReplacementPlugin({
